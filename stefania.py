@@ -25,9 +25,9 @@ def insert_record():
 		query = '''INSERT INTO girl (name, birth_year, birth_month, location, notes)
 		VALUES (%s, %s, %s, %s, %s)'''
 		cursor.execute(query, (form_name.get(), form_birth_year.get(), form_birth_month.get(), form_location.get(), form_notes.get()))
-		cursor.commit()
+		conn.commit()
 	except: 
-		print("HIBA TORTENT")
+		print("HIBA TORTENT: "+sys.exc_info()[0])
 
 def empty_fields():
 	form_name.delete(0, tk.END)
